@@ -15,7 +15,7 @@
                     <li>
                         <a href="/playlist/<%= userId %>/<%= playlist.id %>" class="playlist-link"><%= playlist.name %></a>
                         <% if (playlist.isPublic) { %>
-                            <span class="copy-link" data-url="/playlist/<%= playlist.id %>">🔗</span>
+                            <span class="copy-link" data-url="/playlist/<%= userId %>/<%= playlist.id %>">🔗</span>
                         <% } %>
                     </li>
                 <% }) %>
