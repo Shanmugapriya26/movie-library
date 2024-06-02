@@ -13,7 +13,7 @@
             <ul>
                 <% playlists.forEach(playlist => { %>
                     <li>
-                        <a href="/playlist/<%= playlist.id %>" class="playlist-link"><%= playlist.name %></a>
+                        <a href="/playlist/<%= userId %>/<%= playlist.id %>" class="playlist-link"><%= playlist.name %></a>
                         <% if (playlist.isPublic) { %>
                             <span class="copy-link" data-url="/playlist/<%= playlist.id %>">🔗</span>
                         <% } %>

@@ -5,7 +5,7 @@ const { ensureAuthenticated } = require('../config/auth')
 exports.myList = async (req, res) => {
     try {
         const playlists = await MovieList.findAll({ where: { userId: req.user.id } });
-        res.render('myList', { playlists });
+        res.render('myList', { playlists, userId: req.user.id });
     } catch (err) {
         console.log(err);
         res.redirect('/home');

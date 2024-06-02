@@ -4,7 +4,7 @@ const myListController = require('../controllers/myListController');
 const { ensureAuthenticated } = require('../config/auth');
 
 router.get('/list', ensureAuthenticated, myListController.myList);
-router.get('/playlist/:playlistId', myListController.playlist);
+router.get('/playlist/:userId/:playlistId', myListController.playlist);
 
 router.post('/createPlaylist', ensureAuthenticated, myListController.createPlaylist);
 
