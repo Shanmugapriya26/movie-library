@@ -32,6 +32,10 @@ app.use(bodyParser.json());
 // Setting up EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+// Route handler for the root path '/'
+app.get('/', (req, res) => {
+    res.render('start');
+});
 
 // Global variables
 app.use((req, res, next) => {
