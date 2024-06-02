@@ -1,9 +1,8 @@
-/* Importing Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
 /* Global Styles */
 body {
-    font-family: "Cabin", sans-serif;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-optical-sizing: auto;
     background-color: #000000;
     color: #fff;
