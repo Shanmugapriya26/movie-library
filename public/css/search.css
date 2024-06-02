@@ -1,0 +1,169 @@
+/* Global Styles */
+body {
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('https://st3.depositphotos.com/1007600/17449/i/450/depositphotos_174490352-stock-photo-light-abstract-gradient-motion-blurred.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #e50914; /* Netflix red */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #f40612; /* Lighter red on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0; /* Adjusted margin for spacing below the heading */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"],
+input[type="password"],
+button[type="submit"] {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    max-width: 300px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: #222;
+    color: #fff;
+}
+
+button[type="submit"] {
+    background-color: #e50914; /* Netflix red */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #f40612; /* Lighter red on hover */
+}
+
+/* Additional Styles */
+h1 {
+    margin-top: 50px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li.movie-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    border-radius: 10px;
+}
+
+.poster {
+    flex: 0 0 auto;
+}
+
+.poster img {
+    max-width: 100px;
+    border-radius: 5px;
+}
+
+.movie-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-btn, .playlist-btn, .create-new-playlist {
+    background-color: #e50914; /* Netflix red */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover, .playlist-btn:hover, .create-new-playlist:hover {
+    background-color: #f40612; /* Lighter red on hover */
+}
+
+.prompt-box {
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background */
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkbox-container label {
+    margin-right: 10px;
+}

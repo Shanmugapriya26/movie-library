@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlist</title>
+    <link rel="stylesheet" type="text/css" href="/css/playlist.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Playlist: <%= playlistName %></h1>
+    </div>
+    <div class="movies-container">
+        <ul>
+            <% if (movies && movies.length > 0) { %>
+                <% movies.forEach(movie => { %>
+                    <li>
+                        <div class="movie-info">
+                            <div class="poster">
+                                <img src="<%= movie.poster %>" alt="<%= movie.title %> Poster"> <!-- Display the poster -->
+                            </div>
+                            <div class="details">
+                                <p><%= movie.title %> (<%= movie.year %>)</p> <!-- Movie title and year -->
+                            </div>
+                        </div>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li>No movies found in this playlist.</li>
+            <% } %>
+        </ul>
+    </div>
+    <a href="/list">Back to My Lists</a>
+</body>
+</html>

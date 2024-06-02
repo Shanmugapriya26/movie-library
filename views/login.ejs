@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+</head>
+<body>
+    <% if (success_msg) { %>
+        <div class="alert alert-success">
+            <%= success_msg %>
+        </div>
+    <% } %>
+    <% if (error_msg) { %>
+        <div class="alert alert-danger">
+            <%= error_msg %>
+        </div>
+    <% } %>
+    <% if (error) { %>
+        <div class="alert alert-danger">
+            <%= error %>
+        </div>
+    <% } %>
+    <div class="form-container">
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <label>Username:</label>
+            <input type="text" name="username" class="input-field" required>
+            <label>Password:</label>
+            <input type="password" name="password" class="input-field" required>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <a href="/register">Register</a>
+    </div>
+</body>
+</html>

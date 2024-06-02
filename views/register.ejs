@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="/css/register.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Register</h1>
+        <% if (error_msg) { %>
+            <div class="error">
+                <%= error_msg %>
+            </div>
+        <% } %>
+        <p class="description">Create your account to start creating your favorite movie list.</p>
+        <form action="/register" method="post" onsubmit="return validatePassword()">
+            <label>Username:</label>
+            <input type="text" name="username" class="input-field" required>
+            <label>Password:</label>
+            <input type="password" name="password" id="password" class="input-field" required>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+        <a href="/login">Login</a>
+    </div>
+
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            // Regular expression to match password containing at least one letter, one number, and one symbol
+            var regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&~`#^(){}[\]=+-_<>|\\;:',./])[A-Za-z\d@$!%*?&~`#^(){}[\]=+-_<>|\\;:',./]+$/;
+            if (!regex.test(password)) {
+                alert("Password must contain at least one letter, one number, and one symbol.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

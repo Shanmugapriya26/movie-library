@@ -1,0 +1,50 @@
+/* Global Styles */
+body {
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-image: url('https://st3.depositphotos.com/1007600/17449/i/450/depositphotos_174490352-stock-photo-light-abstract-gradient-motion-blurred.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #e50914; /* Netflix red */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #f40612; /* Lighter red on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}

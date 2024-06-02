@@ -1,0 +1,50 @@
+/* Global Styles */
+body {
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('https://st3.depositphotos.com/1007600/17449/i/450/depositphotos_174490352-stock-photo-light-abstract-gradient-motion-blurred.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    text-align:center;
+    padding: 10px 0;
+    margin-top: 0;
+}
+
+.movies-container {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 0;
+}
+
+.movies-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.poster img {
+    max-width: 100px; /* Adjust as needed */
+    border-radius: 5px;
+}

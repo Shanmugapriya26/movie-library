@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Movies</title>
+    <link rel="stylesheet" type="text/css" href="/css/search.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Search Movies</h1>
+    <form action="/search" method="post">
+        <input type="text" name="title" placeholder="Movie Title" required>
+        <button type="submit">Search</button>
+    </form>
+    <% if (movies) { %>
+        <ul>
+            <% movies.forEach(movie => { %>
+                <li class="movie-item">
+                    <div class="poster">
+                        <img src="<%= movie.Poster %>" alt="<%= movie.Title %> Poster">
+                    </div>
+                    <div class="movie-info">
+                        <%= movie.Title %> (<%= movie.Year %>)
+                        <button class="add-btn" data-movie-id="<%= movie.imdbID %>">+</button>
+                    </div>
+                    <div class="prompt-box" id="prompt-<%= movie.imdbID %>" style="display:none;">
+                        <h2>Select Playlist</h2>
+                        <ul>
+                            <% lists.forEach(list => { %>
+                                <li><button class="playlist-btn" data-list-id="<%= list.id %>"><%= list.name %></button></li>
+                            <% }) %>
+                        </ul>
+                        <input type="text" id="new-playlist-name-<%= movie.imdbID %>" placeholder="New Playlist Name">
+                        <p id="playlist-name-error-<%= movie.imdbID %>" style="color: red; display: none;">Please enter a playlist name</p>
+                        <div class="checkbox-container">
+                            <label for="public-checkbox-<%= movie.imdbID %>">Public</label>
+                            <input type="checkbox" id="public-checkbox-<%= movie.imdbID %>" name="isPublic">
+                        </div>
+                        <button class="create-new-playlist" data-movie-id="<%= movie.imdbID %>">Create New Playlist</button>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+    <a href="/home" class="button" style="position: absolute; top: 20px; right: 20px;">Home</a>
+    <script>
+        $(document).ready(function() {
+            $('.add-btn').click(function(event) {
+                event.stopPropagation(); // Prevent the click event from propagating to the document
+                const movieId = $(this).data('movie-id');
+                const $promptBox = $('#prompt-' + movieId);
+                $('.prompt-box').hide(); // Hide all prompt boxes
+                $promptBox.css({
+                    display: 'block',
+                    top: $(this).offset().top + $(this).height(),
+                    left: $(this).offset().left
+                });
+            });
+
+            $(document).click(function() {
+                $('.prompt-box').hide(); // Hide all prompt boxes when clicking outside
+            });
+
+            $('.prompt-box').click(function(event) {
+                event.stopPropagation(); // Prevent click inside the prompt box from hiding it
+            });
+
+            $('.playlist-btn').click(function() {
+                const listId = $(this).data('list-id');
+                const movieId = $(this).closest('.prompt-box').attr('id').split('-')[1];
+                $.post('/addMovie', { movieId: movieId, listId: listId }, function(response) {
+                    if (response.success) {
+                        alert('Movie added to playlist');
+                        $('.prompt-box').hide();
+                    } else {
+                        alert('Failed to add movie');
+                    }
+                });
+            });
+
+            $('.create-new-playlist').click(function() {
+                const movieId = $(this).data('movie-id');
+                const newListName = $('#new-playlist-name-' + movieId).val();
+                const isPublic = $('#public-checkbox-' + movieId).is(':checked');
+
+                // Check if newListName is empty
+                if (!newListName.trim()) {
+                    $('#playlist-name-error-' + movieId).show(); // Show error message
+                    return; // Exit the function without sending the request
+                } else {
+                    $('#playlist-name-error-' + movieId).hide(); // Hide error message if it was previously shown
+                }
+
+                // Send the request to create a new playlist
+                $.post('/addMovie', { movieId: movieId, listId: 'new', newListName: newListName, isPublic }, function(response) {
+                    if (response.success) {
+                        alert('New playlist created and movie added');
+                        $('.prompt-box').hide();
+                    } else {
+                        alert('Failed to create playlist and add movie');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Lists</title>
+    <link rel="stylesheet" type="text/css" href="/css/myList.css">
+</head>
+<body>
+    <div class="header">
+        <h1>My Lists</h1>
+    </div>
+    <div class="playlist-container">
+        <% if (playlists && playlists.length > 0) { %>
+            <ul>
+                <% playlists.forEach(playlist => { %>
+                    <li>
+                        <a href="/playlist/<%= playlist.id %>" class="playlist-link"><%= playlist.name %></a>
+                        <% if (playlist.isPublic) { %>
+                            <span class="copy-link" data-url="/playlist/<%= playlist.id %>">🔗</span>
+                        <% } %>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No playlists found.</p>
+        <% } %>
+    </div>
+
+    <!-- Button to toggle the visibility of the create playlist form -->
+    <button id="toggle-form-btn">Create New Playlist</button>
+
+    <!-- Form to create a new playlist (initially hidden) -->
+    <div id="create-playlist-form" style="display: none;">
+        <h2>Create New Playlist</h2>
+        <form id="playlist-form" action="/createPlaylist" method="POST">
+            <label for="playlist-name">Playlist Name:</label>
+            <input type="text" id="playlist-name" name="name" required>
+            <div class="checkbox-container">
+                <label for="is-public">Public Playlist:</label>
+                <input type="checkbox" id="is-public" name="isPublic">
+            </div>
+            <button type="submit">Create Playlist</button>
+        </form>
+    </div>
+
+    <a href="/home" class="button">Home</a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Toggle visibility of the create playlist form
+            $('#toggle-form-btn').click(function() {
+                $('#create-playlist-form').toggle();
+            });
+
+            // Handle form submission via AJAX
+            $('#playlist-form').submit(function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                const formData = $(this).serialize(); // Serialize form data
+                $.post('/createPlaylist', formData, function(response) {
+                    if (response.success) {
+                        alert('New playlist created!');
+                        // Reload the page to display the newly created playlist
+                        location.reload();
+                    } else {
+                        alert('Failed to create playlist.');
+                    }
+                });
+            });
+
+            // Add event listener for copying link to clipboard
+            $('.copy-link').click(function() {
+                const baseUrl = window.location.origin; // Get the base URL
+                const relativeUrl = $(this).data('url'); // Get the relative URL
+
+                // Construct the full URL by concatenating the base URL and relative URL
+                const fullUrl = baseUrl + relativeUrl;
+
+                // Create a temporary input element
+                const input = document.createElement('input');
+                input.value = fullUrl;
+                document.body.appendChild(input);
+
+                // Select the input content
+                input.select();
+
+                // Copy the selected content to the clipboard
+                document.execCommand('copy');
+
+                // Remove the input element from the document body
+                document.body.removeChild(input);
+
+                // Show a confirmation message (optional)
+                alert('Link copied to clipboard: ' + fullUrl);
+            });
+        });
+    </script>
+</body>
+</html>

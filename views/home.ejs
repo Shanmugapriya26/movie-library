@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, <%= user.username %></h1>
+    </header>
+    <main>
+        <div class="container">
+            <a href="/search" class="button">Search for Movies</a>
+            <a href="/list" class="button">View My List</a>
+            <a href="/logout" class="button">Logout</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 CiniHere</p>
+    </footer>
+</body>
+</html>

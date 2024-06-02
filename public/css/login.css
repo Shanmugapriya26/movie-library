@@ -1,0 +1,113 @@
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* Global Styles */
+body {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  background: url('https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY-1920-80.jpg.webp') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  color: #e50914; /* Netflix red */
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 0;
+  color: #bbb;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #bbb;
+}
+
+/* Form Container */
+.form-container {
+  background-color: rgba(51, 51, 51, 0.8); /* Transparent dark grey background */
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 100%;
+  position: relative; /* Add position relative for message positioning */
+}
+
+/* Input Fields */
+.input-field {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #e50914; /* Netflix red */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #f40612; /* Lighter red on hover */
+}
+
+/* Link */
+a {
+  color: #e50914;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Alert Messages */
+.alert {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+}
+
+.alert-success {
+  background-color: rgba(40, 167, 69, 0.7);
+  color: #fff;
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.7); 
+  color: #fff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+  }
+}
