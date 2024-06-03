@@ -45,4 +45,35 @@ Ensure you have the following installed:
    git clone <repository-url>
    cd movie-app
 
+2. **Install dependencies:**
+   ```bash
+   npm install
+
+3. **Set up environment variables:**
+   Create a .env file in the root of the project with the following content:
+   ```env
+   OMDB_API_KEY=<your-omdb-api-key>
+   DB_NAME=<your-db-name>
+   DB_USER=<your-user-name>
+   DB_PASSWORD=<your-db-password>
+   DB_HOST=<your-host-name>
+
+4. **Start the application:**
+   ```bash
+   npm start
+   ```
+   The application should be running on http://localhost:5000.
+
+
+### Contributing
+
+1.Fork the repository.
+2.Create your feature branch (git checkout -b feature/fooBar).
+3.Commit your changes (git commit -am 'Add some fooBar').
+4.Push to the branch (git push origin feature/fooBar).
+5.Create a new Pull Request
+
+### License
+
+This project is licensed under the MIT License.
 
